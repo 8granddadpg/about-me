@@ -3,57 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>8granddadpgn</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body, html {
+        * {
             margin: 0;
             padding: 0;
-            height: 100%;
+            box-sizing: border-box;
+        }
+        body, html {
             width: 100%;
-            overflow: hidden;
-            font-family: cursive;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
             color: white;
             display: flex;
-            flex-direction: column;
-            text-align: center;
-            justify-content: flex-start; /* Align items at the top */
-            align-items: center; /* Keep items centered horizontally */
-        }
-        body {
-            background: url('https://res.cloudinary.com/cloudinary-marketing/images/w_700,h_432/f_auto,q_auto/v1649720751/Web_Assets/blog/Mario_1/Mario_1-gif?_i=AA') no-repeat center center fixed;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://res.cloudinary.com/cloudinary-marketing/images/w_700,h_432/f_auto,q_auto/v1649720751/Web_Assets/blog/Mario_1/Mario_1-gif?_i=AA') no-repeat center center fixed;
             background-size: cover;
+            overflow: hidden;
         }
-
+        .container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
         h3 {
-            font-size: 30px;
-            color: purple;
-            margin-top: 20px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3rem;
+            color: #9933FF;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-out forwards;
         }
-        
-        button {
-          background-color: purple;
-          border-radius: 1000px;
-          font-size: 20px;
-          color: white;
-          font-family: cursive;
-          width: 400px;
-          height: 50px;
-        }
-
         p {
-            font-size: 15px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #dcdcdc;
+            line-height: 1.5;
+            animation: slideInUp 2s ease-out forwards;
+        }
+        button {
+            background-color: #9933FF;
             color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        button:hover {
+            background-color: #7743a3;
+            transform: scale(1.1);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        .game-link {
+            display: inline-block;
+            margin-top: 20px;
+            transition: transform 0.2s ease;
+        }
+        .game-link:hover {
+            transform: scale(1.1);
+        }
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            font-size: 0.8rem;
+            color: #999;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @media screen and (max-width: 768px) {
+            h3 {
+                font-size: 2.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            button {
+                font-size: 1rem;
+                padding: 12px 25px;
+            }
         }
     </style>
 </head>
 <body>
-    <h3>8GrandDadpgn</h3>
-    <p>I'm 8granddad. I play Roblox and also Minecraft as well.</p>
-    <h3>Games I have played</h3>
-    <p>EaglerCraft, formerly cracked Minecraft for the web</p>
-    <p></p> <a href="https://eaglercraft.com/mc/1.8.8-wasm/">
-      <button>Eaglercraft</button>
-    </a>
+    <div class="container">
+        <h3>8GrandDadpgn</h3>
+        <p>I'm 8granddad. I play Roblox and also Minecraft as well!</p>
+        <h3 style="margin-top: 20px">Games played</h3>
+        <p>Including EaglerCraft, formerly cracked Minecraft for the web</p>
+        <div class="game-link">
+            <a href="https://eaglercraft.com/mc/1.8.8-wasm/" target="_blank">
+                <button>EaglerCraft</button>
+            </a>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 8GrandDadpgn | All rights reserved | i love mario :)</p>
+    </div>
+    <script>
+        document.querySelector('button').addEventListener('click', function() {
+            alert('for more versions go to: https://eaglercraft.com');
+        });
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 150) {
+                document.querySelector('.container').style.transform = 'scale(0.95)';
+            } else {
+                document.querySelector('.container').style.transform = 'scale(1)';
+            }
+        });
+    </script>
 </body>
 </html>
